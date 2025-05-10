@@ -1,0 +1,34 @@
+spring.profiles.active: local
+---
+spring:
+  application:
+    name: processInstanceVisualizer
+
+logging.level:
+  com.santander.processinstancevisualizer.application: INFO
+  root: WARN
+
+management:
+  endpoint.health:
+    show-details: ALWAYS
+
+health:
+  config:
+    enabled: false
+
+springdoc:
+  swagger-ui:
+    disable-swagger-default-url: true
+    path: /swagger-ui.html
+
+server:
+  max-http-request-header-size: 128KB
+  forward-headers-strategy: framework
+  shutdown: graceful
+
+process-paas-api:
+  base-url: https://api.internal.example.com
+  process-inventory-endpoint: /processes
+  default-date-range: P1M
+  process-details-endpoint: /processes/{id}
+
